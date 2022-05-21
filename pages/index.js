@@ -158,7 +158,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
               )
           }
             <Paragraph>
-          Want to Mint a Degen Hound NFT? Switch to ETH on the top right & connect wallet!
+          Want to Mint a Degen Hound NFT? Navigate to ETH PLAY on the top right & connect wallet!
           </Paragraph>
         </Box>
         <Box display={{ md: 'flex' }}>
