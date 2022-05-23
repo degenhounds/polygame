@@ -98,7 +98,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                 }
 
                 setLoading(2);
-            }, 45000);
+            }, 60000);
 
             // contract.events.Result({}, async (error, event) => {
             // // contract.once('Result', {}, async (error, event) => {
@@ -170,7 +170,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                                     flexGrow={1}
                                     textAlign="center"
                                 >
-                                    <p>Loading the track.. (45s) </p>
+                                    <p>Loading the track.. (60s) </p>
                                 </Box>
                             </Box>
                             <hr />
