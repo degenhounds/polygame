@@ -170,7 +170,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                                     flexGrow={1}
                                     textAlign="center"
                                 >
-                                    <p>Loading the track.. </p>
+                                    <p>Loading the track.. (30s) </p>
                                 </Box>
                             </Box>
                             <hr />
