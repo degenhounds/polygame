@@ -98,7 +98,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                 }
 
                 setLoading(2);
-            }, 40000);
+            }, 30000);
 
             // contract.events.Result({}, async (error, event) => {
             // // contract.once('Result', {}, async (error, event) => {
