@@ -63,13 +63,17 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
         //Send bet to the contract and wait for the verdict
 
         //Send bet to the contract and wait for the verdict
-        contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount }).on('transactionHash', (hash) => {
+        contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount, gasPrice: 110000000000 }).on('transactionHash', async (hash) => {
             setLoading(1);
-             contract.events.Result({}, async (error, event) => {
-            // contract.once('Result', {}, async (error, event) => {
-                const verdict = event.returnValues.winAmount;
+            let previous_balance = await web3.eth.getBalance(wallet);
+            previous_balance = (Math.round(web3.utils.fromWei(previous_balance) * 1000) / 1000).toFixed(3);
+
+            setTimeout(async () => {
+                let balance = await web3.eth.getBalance(wallet);
+                balance = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
+                setBalance(balance);
                 let index = Math.floor(Math.random() * 100) % 3 + 1;
-                if (verdict === '0') {
+                if (balance < previous_balance) {
                     // alert('SORRY, UNFORTUNATELY YOU LOST :(')
                     setVerdict(0);
 
@@ -93,14 +97,45 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                     }
                 }
 
-                //Prevent error when user logout, while waiting for the verdict
-                if (wallet !== 'undefined' && wallet.length > 0) {
-                    let balance = await web3.eth.getBalance(wallet);
-                    balance = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
-                    setBalance(balance);
-                }
                 setLoading(2);
-            })
+            }, 90000);
+
+            // contract.events.Result({}, async (error, event) => {
+            // // contract.once('Result', {}, async (error, event) => {
+            //     const verdict = event.returnValues.winAmount;
+            //     let index = Math.floor(Math.random() * 100) % 3 + 1;
+            //     if (verdict === '0') {
+            //         // alert('SORRY, UNFORTUNATELY YOU LOST :(')
+            //         setVerdict(0);
+
+            //         if (hound === 'orange') {
+            //             let url = "/images/grey_win/grey_win_" + index + ".gif";
+            //             setRaceUrl(url)
+            //         } else {
+            //             let url = "/images/orange_win/orange_win_" + index + ".gif";
+            //             setRaceUrl(url)
+            //         }
+            //     } else {
+            //         // alert('CONGRATULATIONS! YOU WIN! :)')
+            //         setVerdict(1);
+
+            //         if (hound === 'grey') {
+            //             let url = "/images/grey_win/grey_win_" + index + ".gif";
+            //             setRaceUrl(url)
+            //         } else {
+            //             let url = "/images/orange_win/orange_win_" + index + ".gif";
+            //             setRaceUrl(url)
+            //         }
+            //     }
+
+            //     //Prevent error when user logout, while waiting for the verdict
+            //     if (wallet !== 'undefined' && wallet.length > 0) {
+            //         let balance = await web3.eth.getBalance(wallet);
+            //         balance = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
+            //         setBalance(balance);
+            //     }
+            //     setLoading(2);
+            // })
         }).on('error', (error) => {
             console.log('Error')
             setLoading(0);
