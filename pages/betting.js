@@ -69,7 +69,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
             setLoading(1);
             setTimeout(async () => {
                 let bal = await web3.eth.getBalance(wallet);
-                bal = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
+                bal = (Math.round(web3.utils.fromWei(bal) * 1000) / 1000).toFixed(3);
                 setBalance(bal);
                 let index = Math.floor(Math.random() * 100) % 3 + 1;
                 if (bal < previous_balance) {
