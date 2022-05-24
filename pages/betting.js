@@ -68,11 +68,11 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
         contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount, gasPrice: 110000000000 }).on('transactionHash', async (hash) => {
             setLoading(1);
             setTimeout(async () => {
-                let balance = await web3.eth.getBalance(wallet);
-                balance = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
-                setBalance(balance);
+                let bal = await web3.eth.getBalance(wallet);
+                bal = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
+                setBalance(bal);
                 let index = Math.floor(Math.random() * 100) % 3 + 1;
-                if (balance < previous_balance) {
+                if (bal < previous_balance) {
                     // alert('SORRY, UNFORTUNATELY YOU LOST :(')
                     setVerdict(0);
 
@@ -97,7 +97,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                 }
 
                 setLoading(2);
-            }, 90000);
+            }, 70000);
 
             // contract.events.Result({}, async (error, event) => {
             // // contract.once('Result', {}, async (error, event) => {
