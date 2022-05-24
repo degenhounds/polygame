@@ -61,13 +61,12 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
         let amount = web3.utils.toWei(betAmount.toString());
 
         //Send bet to the contract and wait for the verdict
-
-        //Send bet to the contract and wait for the verdict
+        
+        let previous_balance = await web3.eth.getBalance(wallet);
+        previous_balance = (Math.round(web3.utils.fromWei(previous_balance) * 1000) / 1000).toFixed(3);
+        
         contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount, gasPrice: 110000000000 }).on('transactionHash', async (hash) => {
             setLoading(1);
-            let previous_balance = await web3.eth.getBalance(wallet);
-            previous_balance = (Math.round(web3.utils.fromWei(previous_balance) * 1000) / 1000).toFixed(3);
-
             setTimeout(async () => {
                 let balance = await web3.eth.getBalance(wallet);
                 balance = (Math.round(web3.utils.fromWei(balance) * 1000) / 1000).toFixed(3);
