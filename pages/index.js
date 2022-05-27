@@ -158,7 +158,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
               )
           }
             <Paragraph>
-          Want to Mint a Degen Hound NFT? Navigate to ETH PLAY on the top right & connect wallet!
+          Make a Tiktok video of playing our game and recieve 15 MATIC Instantly! Join discord and open a ticket to claim!
           </Paragraph>
         </Box>
         <Box display={{ md: 'flex' }}>
