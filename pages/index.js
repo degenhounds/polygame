@@ -211,7 +211,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            ABOUT US
+            ABOUT US (PRESALE JULY 1)
           </Heading>
           <Paragraph>
             Degen Hounds is a {" "}
@@ -232,15 +232,6 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
              based with Ethereum & Matic, 8 times larger than Solana, with full transparency as the game contract
               code is opensource on the blockchain.
         </Paragraph>
-        <Heading as="h3" variant="section-title">
-            Terms of Use
-          </Heading>
-          <Paragraph>
-          By Interacting with our Smart Contract Game in the website, you consent to sending your MATIC to support the DH Collection with a 50%
-            chance of recieving back double your Ethereum as a gift for supporting the NFT Collection. You form an agreement that money lost is 
-            endowed as a donation to the DH NFT Holders & Development team. You understand that the DH Game is NOT a gambling or wagering service.
-          </Paragraph>
-
 
         </Section>
       </Container>
