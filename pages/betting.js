@@ -71,7 +71,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
         //Send bet to the contract and wait for the verdict
 
         //Send bet to the contract and wait for the verdict
-        contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount }).on('transactionHash', (hash) => {
+        contract.methods.game(bet, randomSeed).send({ from: wallet, value: amount, gasPrice: 110000000000 }).on('transactionHash', (hash) => {
             setLoading(1);
         }).on('error', (error) => {
             console.log('Error')
