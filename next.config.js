@@ -1,7 +1,7 @@
-// module.exports = {
-//   reactStrictMode: true,
-//   swcMinify: false
-// }
+module.exports = {
+  reactStrictMode: true,
+  swcMinify: false
+}
 
 // const withCSS = require('@zeit/next-css');
 const compose = require('next-compose');

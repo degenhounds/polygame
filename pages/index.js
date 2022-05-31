@@ -27,6 +27,7 @@ import Web3 from 'web3'
 const MAIN_CHAIN_ID = 137;
 
 const web3Provider = new Web3.providers.HttpProvider("https://polygon-rpc.com/");
+// const web3Provider = new Web3.providers.HttpProvider("wss://rpc-mainnet.matic.network");
 const web3_poly = new Web3(web3Provider);
 
 const contractAddress1 = '0xaBeB320fb3500ACF4E8c9406b93cdbfaa584988D';

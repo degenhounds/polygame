@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "keywords": [],
-  "author": "Degen Hounds",
+  "author": "Degen Hounds, Tyler McNiff",
   "license": "MIT",
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
