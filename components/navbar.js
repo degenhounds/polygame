@@ -99,7 +99,7 @@ const Navbar = (props) => {
           </LinkItem>
           <LinkItem
             target="_blank"
-            href="https://opensea.io/collection/degenhounds"
+            href="https://opensea.io/"
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -160,7 +160,7 @@ const Navbar = (props) => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
-                  href="https://opensea.io/collection/degenhounds/"
+                  href="https://opensea.io/"
                 >
                   Opensea
                 </MenuItem>
