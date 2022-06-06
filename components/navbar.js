@@ -111,7 +111,7 @@ const Navbar = (props) => {
 
           <LinkItem
             target="_blank"
-            href="https://degenhounds.com"
+            href="https://eth.degenhounds.com/"
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -166,7 +166,7 @@ const Navbar = (props) => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
-                  href="https://degenhounds.com"
+                  href="https://eth.degenhounds.com/"
                 >
                   ETH PLAY
                 </MenuItem>
