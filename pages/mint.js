@@ -114,7 +114,7 @@ const Mint = ({ wallet, balance, setBalance }) => {
                             flexGrow={1}
                             textAlign="center"
                         >
-                            <p>{1000 * mintAmount * 0.06 / 1000} ETH</p>
+                            <p>{200 * mintAmount} MATIC</p>
                         </Box>
                     </Box>
 
