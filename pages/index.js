@@ -81,11 +81,11 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
     
   }
 
-  // const mintClicked = () => {
-  //   Router.push({
-  //     pathname: '/mint'
-  //   });
-  // }
+  const mintClicked = () => {
+    Router.push({
+      pathname: '/mint'
+    });
+  }
 
   return (
     <Layout>
@@ -148,13 +148,13 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
                   >
                     Play Now
                   </Button>
-                  {/* <Button
+                  <Button
                     colorScheme="teal"
                     onClick={mintClicked}
                     style={{ marginLeft: 8 }}
                   >
                     Mint Now
-                  </Button> */}
+                  </Button>
                 </div>
               )
           }
