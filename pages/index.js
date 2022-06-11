@@ -158,7 +158,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
               )
           }
             <Paragraph>
-          Make a Tiktok video of playing our game and recieve 15 MATIC Instantly! Join discord and open a ticket to claim!
+          Play a game | Show Proof | Open a ticket on our Discord | Win Instant WL | Limited time only!
           </Paragraph>
         </Box>
         <Box display={{ md: 'flex' }}>
