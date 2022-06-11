@@ -150,7 +150,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance 
                                     flexGrow={1}
                                     textAlign="center"
                                 >
-                                    <p>Loading the track.. </p>
+                                    <p>Loading the track.. page occasianlly freezes due to blockchain network activity, return to homepage to view results </p>
                                 </Box>
                             </Box>
                             <hr />
