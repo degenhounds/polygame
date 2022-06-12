@@ -219,7 +219,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
               Smart Contract
         </Link>
             {" "}that allows users to play Double or Nothing
-            with their Ethereum or MATIC tokens. Odds are 50/50 with a 5% fee, 3% of which is distributed
+            with their MATIC tokens. Odds are 50/50 with a 5% fee, 3% of which is distributed
           to DH NFT holders in MATIC. The remaining 2% is given to partners and reserve wallets to support the house balance.
           The Polygon Smart contract uses {" "}
           <Link href="https://docs.chain.link/docs/chainlink-vrf/" target="_blank">
@@ -227,10 +227,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
         </Link>
           {" "}to generate True Randomness 
           and every single transaction through the smart contract is verifiable on-chain.
-          DH is inspired by Degencoinflip which boasts one of the highest NFT floorprices in the 
-            Solana ecosystem. The DH Team believes this project will surpass its competitor as it is
-             based with Ethereum & Matic, 8 times larger than Solana, with full transparency as the game contract
-              code is opensource on the blockchain.
+     
         </Paragraph>
 
         </Section>
