@@ -158,7 +158,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
               )
           }
             <Paragraph>
-          Play a game | Show Proof | Open a ticket on our Discord | Win Instant WL | Limited time only!
+          Play a game - Open a ticket on our Discord - Show Proof - Win Instant WL - Limited time only!
           </Paragraph>
         </Box>
         <Box display={{ md: 'flex' }}>
@@ -211,7 +211,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            ABOUT US (PRESALE JULY 1)
+            ABOUT US (NFT PRESALE JULY 1) - BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME
           </Heading>
           <Paragraph>
             Degen Hounds is a {" "}
