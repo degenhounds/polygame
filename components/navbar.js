@@ -75,7 +75,7 @@ const Navbar = (props) => {
         >
           <LinkItem
             target="_blank"
-            href="https://discord.gg/bj4T2hrVvs"
+            href="https://discord.gg/FAVuXNY3kA"
             path={path}
             display="inline-flex"
             alignItems="center"
@@ -148,7 +148,7 @@ const Navbar = (props) => {
               <MenuList>
                 <MenuItem
                   as={Link}
-                  href="https://discord.gg/bj4T2hrVvs"
+                  href="https://discord.gg/FAVuXNY3kA"
                 >
                   Discord
                 </MenuItem>
