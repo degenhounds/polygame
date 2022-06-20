@@ -109,6 +109,10 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract }) => {
           />
 
         </Box> */}
+    
+    <Heading as="h2" variant="page-title">
+              FIRST EVERY OPEN SOURCE DECRENTALISED NFT GAME
+            </Heading>
 
         <div
           style={{ display: 'flex', justifyContent: 'center' }}
