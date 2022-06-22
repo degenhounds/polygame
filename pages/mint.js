@@ -133,7 +133,7 @@ const Mint = ({ wallet, balance, setBalance }) => {
 
                     <Section delay={0.1}>
                         <Heading as="h3" variant="section-title">
-                            Degen Hound NFT
+                            Degen Hound NFT (Mint Available August 1)
                         </Heading>
                         <Paragraph>
                             Purchasing a Degen Hound NFT will grant you exclusive equity within
