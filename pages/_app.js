@@ -3,6 +3,8 @@ import Fonts from '../components/fonts'
 import { AnimatePresence } from 'framer-motion'
 import Chakra from '../components/chakra'
 
+import { AppWrapper } from '../context/state';
+
 import { useState, useEffect } from 'react';
 
 import useSound from 'use-sound';
@@ -137,36 +139,38 @@ function Website({ Component, pageProps, router }) {
   };
 
   return (
-    <Chakra cookies={pageProps.cookies}>
-      <Fonts />
-      <Layout router={router} wallet={wallet}>
-        <AnimatePresence
-          exitBeforeEnter
-          initial={true}
-          onExitComplete={() => {
-            if (typeof window !== 'undefined') {
-              window.scrollTo({ top: 0 })
-            }
-          }}
-        >
-          <Component
-            {...pageProps}
-            key={router.route}
-            wallet={wallet}
-            connectWallet={connectWallet}
-            web3={web3}
-            contract={contract}
-            contractAddress={contractAddress}
-            balance={balance}
-            setBalance={setBalance}
-            games={games}
-            setGames={setGames}
-            contract={contract}
-            clickSoundPlay={clickSoundPlay}
-          />
-        </AnimatePresence>
-      </Layout>
-    </Chakra>
+    <AppWrapper>
+      <Chakra cookies={pageProps.cookies}>
+        <Fonts />
+        <Layout router={router} wallet={wallet}>
+          <AnimatePresence
+            exitBeforeEnter
+            initial={true}
+            onExitComplete={() => {
+              if (typeof window !== 'undefined') {
+                window.scrollTo({ top: 0 })
+              }
+            }}
+          >
+            <Component
+              {...pageProps}
+              key={router.route}
+              wallet={wallet}
+              connectWallet={connectWallet}
+              web3={web3}
+              contract={contract}
+              contractAddress={contractAddress}
+              balance={balance}
+              setBalance={setBalance}
+              games={games}
+              setGames={setGames}
+              contract={contract}
+              clickSoundPlay={clickSoundPlay}
+            />
+          </AnimatePresence>
+        </Layout>
+      </Chakra>
+    </AppWrapper>
   )
 }
 

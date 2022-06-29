@@ -26,6 +26,8 @@ import Web3 from 'web3'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 
+import { useAppContext } from '../context/state';
+
 const wssProvider = new Web3.providers.WebsocketProvider("wss://speedy-nodes-nyc.moralis.io/987175484712745aa3bc5645/polygon/mainnet/ws")
 const contractAddress = '0xaBeB320fb3500ACF4E8c9406b93cdbfaa584988D';
 const contract_abi = [{ "inputs": [{ "internalType": "address", "name": "_admin", "type": "address" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "sender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "Received", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "id", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "bet", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "randomSeed", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }, { "indexed": false, "internalType": "address", "name": "player", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "winAmount", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "randomResult", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "time", "type": "uint256" }], "name": "Result", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "address", "name": "manager", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "Withdraw", "type": "event" }, { "inputs": [], "name": "MAX_DEPOSIT_AMOUNT", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "MIN_DEPOSIT_AMOUNT", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_addr", "type": "address" }], "name": "addManager", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "adminWallet", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "fund", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "bet", "type": "uint256" }, { "internalType": "uint256", "name": "seed", "type": "uint256" }], "name": "game", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "payable", "type": "function" }, { "inputs": [], "name": "gameId", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "games", "outputs": [{ "internalType": "uint256", "name": "id", "type": "uint256" }, { "internalType": "uint256", "name": "bet", "type": "uint256" }, { "internalType": "uint256", "name": "seed", "type": "uint256" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }, { "internalType": "uint256", "name": "winAmount", "type": "uint256" }, { "internalType": "uint256", "name": "time", "type": "uint256" }, { "internalType": "address payable", "name": "player", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "lastGameId", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "managers", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "randomResult", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "bytes32", "name": "requestId", "type": "bytes32" }, { "internalType": "uint256", "name": "randomness", "type": "uint256" }], "name": "rawFulfillRandomness", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_addr", "type": "address" }], "name": "removeManager", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "random", "type": "uint256" }], "name": "verdict", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "withdrawEther", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "withdrawLink", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "stateMutability": "payable", "type": "receive" }];
@@ -42,6 +44,8 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     const [winSoundPlay] = useSound('/sound/win_sound.mp3');
     const [loseSoundPlay] = useSound('/sound/lose_sound.mp3');
 
+    const mycontext = useAppContext();
+
     useEffect(() => {
         if (wallet.length == 0) {
             return Router.push('/');
@@ -49,6 +53,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     }, [wallet]);
 
     useEffect(() => {
+        if (mycontext.isSound == false) return;
         if (loading == 2) {
             raceSoundPlay();
             setTimeout(() => {
@@ -62,22 +67,30 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     }, [loading])
 
     const onGreyClicked = () => {
-        clickSoundPlay();
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         setHound('grey');
     }
 
     const onOrangeClicked = () => {
-        clickSoundPlay();
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         setHound('orange');
     }
 
     const onBetAmountClicked = (amount) => {
-        clickSoundPlay();
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         setBetAmount(amount);
     }
 
     const onBetClicked = async () => {
-        clickSoundPlay();
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         if (hound.length == 0) {
             return alert('PLEASE SELECT WHAT YOU LIKE.');
         }
@@ -145,10 +158,16 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     }
 
     const onRetryClicked = () => {
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         setLoading(0);
     }
 
     const onQuitClicked = () => {
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         Router.push('/');
     }
 

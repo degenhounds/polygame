@@ -24,6 +24,8 @@ import { useState, useEffect } from 'react';
 import Router from 'next/router'
 import Web3 from 'web3'
 
+import { useAppContext } from '../context/state';
+
 const MAIN_CHAIN_ID = 137;
 
 const web3Provider = new Web3.providers.HttpProvider("https://polygon-rpc.com/");
@@ -34,6 +36,7 @@ const contract_abi1 = [{ "inputs": [{ "internalType": "address", "name": "_admin
 const bet_contract_poly = new web3_poly.eth.Contract(contract_abi1, contractAddress1);
 
 const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSoundPlay }) => {
+  const mycontext = useAppContext();
 
   useEffect(() => {
     async function load() {
@@ -70,12 +73,16 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
   }, []);
 
   const connectWalletClicked = () => {
-    clickSoundPlay();
+    if (mycontext.isSound == true) {
+      clickSoundPlay();
+    }
     connectWallet();
   }
 
   const playClicked = () => {
-    clickSoundPlay();
+    if (mycontext.isSound == true) {
+      clickSoundPlay();
+    }
     Router.push({
       pathname: '/betting',
     });
@@ -83,7 +90,9 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
   }
 
   const mintClicked = () => {
-    clickSoundPlay();
+    if (mycontext.isSound == true) {
+      clickSoundPlay();
+    }
     Router.push({
       pathname: '/mint'
     });

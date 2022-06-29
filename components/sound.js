@@ -4,6 +4,7 @@ import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 import { useState, useEffect } from 'react';
+import { useAppContext } from '../context/state';
 
 const SoundBox = styled.span`
   font-weight: bold;
@@ -29,9 +30,10 @@ const Sound = () => {
 
     const [soundStat, setSoundStat] = useState(false);
     const [soundImg, setSoundImg] = useState(`/images/sound_${useColorModeValue('light', 'dark')}mode/off.png`);
+    const mycontext = useAppContext();
 
     useEffect(() => {
-        if (soundStat) {
+        if (mycontext.isSound) {
             setSoundImg(baseUrl+'off.png');
         } else {
             setSoundImg(baseUrl+'on.png');
@@ -39,8 +41,10 @@ const Sound = () => {
     }, [baseUrl])
 
     const onClickSound = () => {
-        const stat = !soundStat;
-        setSoundStat(stat);
+        // const stat = !soundStat;
+        // setSoundStat(stat);
+        const stat = !mycontext.isSound;
+        mycontext.setIsSound(stat);
 
         if (stat) {
             setSoundImg(baseUrl+'off.png');

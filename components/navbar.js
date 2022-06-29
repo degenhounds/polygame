@@ -130,9 +130,9 @@ const Navbar = (props) => {
           </Text>
         </Stack>
 
-        {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <Sound />
-        </div> */}
+        </div>
         <Box flex={1} align="right">
           {/* <Sound /> */}
           <ThemeToggleButton />

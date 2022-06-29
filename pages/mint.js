@@ -25,6 +25,8 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 
+import { useAppContext } from '../context/state';
+
 import Web3 from 'web3'
 const web3 = new Web3(Web3.givenProvider);
 
@@ -35,6 +37,8 @@ const dh_contract = new web3.eth.Contract(dh_contract_abi, dhContractAddr);
 const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
     const [mintAmount, setMintAmount] = useState(1);
     const [totalMinted, setTotalMinted] = useState(0);
+
+    const mycontext = useAppContext();
 
     useEffect(() => {
         if (wallet.length == 0) {
@@ -55,7 +59,9 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
     }, [])
 
     const onMintClicked = async () => {
-        clickSoundPlay();
+        if (mycontext.isSound == true) {
+            clickSoundPlay();
+        }
         await dh_contract.methods.mintNFT(mintAmount).send({
             from: wallet,
             to: dhContractAddr,
@@ -94,7 +100,12 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                         <Button
                             colorScheme="teal"
                             style={{ fontSize: 25 }}
-                            onClick={() => { clickSoundPlay(); setMintAmount(mintAmount + 1) }}
+                            onClick={() => { 
+                                if (mycontext.isSound == true) {
+                                    clickSoundPlay();
+                                } 
+                                setMintAmount(mintAmount + 1) 
+                            }}
                         >
                             +
                         </Button>
@@ -104,7 +115,12 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                         <Button
                             colorScheme="teal"
                             style={{ fontSize: 25, marginLeft: 8 }}
-                            onClick={() => { clickSoundPlay(); setMintAmount(mintAmount > 1 ? mintAmount - 1 : mintAmount) }}
+                            onClick={() => { 
+                                if (mycontext.isSound == true) {
+                                    clickSoundPlay();
+                                } 
+                                setMintAmount(mintAmount > 1 ? mintAmount - 1 : mintAmount) 
+                            }}
                         >
                             -
                         </Button>
