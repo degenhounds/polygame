@@ -49,15 +49,15 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     }, [wallet]);
 
     useEffect(() => {
-        if (loading == 1) {
-            raceSoundPlay();
-        }
         if (loading == 2) {
-            if (verdict == 0) {
-                loseSoundPlay();
-            } else {
-                winSoundPlay();
-            }
+            raceSoundPlay();
+            setTimeout(() => {
+                if (verdict == 0) {
+                    loseSoundPlay();
+                } else {
+                    winSoundPlay();
+                }
+            }, 5000);
         }
     }, [loading])
 
