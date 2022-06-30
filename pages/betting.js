@@ -55,14 +55,13 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
     useEffect(() => {
         if (mycontext.isSound == false) return;
         if (loading == 2) {
-            raceSoundPlay();
             setTimeout(() => {
                 if (verdict == 0) {
                     loseSoundPlay();
                 } else {
                     winSoundPlay();
                 }
-            }, 5000);
+            }, 6000);
         }
     }, [loading])
 
