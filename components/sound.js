@@ -29,14 +29,14 @@ const Sound = () => {
     const baseUrl = `/images/sound_${useColorModeValue('light', 'dark')}mode/`;
 
     const [soundStat, setSoundStat] = useState(false);
-    const [soundImg, setSoundImg] = useState(`/images/sound_${useColorModeValue('light', 'dark')}mode/off.png`);
+    const [soundImg, setSoundImg] = useState(`/images/sound_${useColorModeValue('light', 'dark')}mode/off3.png`);
     const mycontext = useAppContext();
 
     useEffect(() => {
         if (mycontext.isSound) {
-            setSoundImg(baseUrl+'off.png');
+            setSoundImg(baseUrl+'off3.png');
         } else {
-            setSoundImg(baseUrl+'on.png');
+            setSoundImg(baseUrl+'on3.png');
         }
     }, [baseUrl])
 
@@ -47,9 +47,9 @@ const Sound = () => {
         mycontext.setIsSound(stat);
 
         if (stat) {
-            setSoundImg(baseUrl+'off.png');
+            setSoundImg(baseUrl+'off3.png');
         } else {
-            setSoundImg(baseUrl+'on.png');
+            setSoundImg(baseUrl+'on3.png');
         }
     }
 
