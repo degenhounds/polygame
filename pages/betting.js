@@ -61,7 +61,7 @@ const Betting = ({ wallet, web3, contract, contractAddress, balance, setBalance,
                 } else {
                     winSoundPlay();
                 }
-            }, 6000);
+            }, 5500);
         }
     }, [loading])
 
