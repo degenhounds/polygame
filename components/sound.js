@@ -55,7 +55,7 @@ const Sound = () => {
 
     return (
         <SoundBox onClick={onClickSound}>
-            <Image src={soundImg} width={45} height={35} alt="sound" />
+            <Image src={soundImg} width={40} height={40} alt="sound" />
         </SoundBox>
     )
 }
