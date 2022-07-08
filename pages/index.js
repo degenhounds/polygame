@@ -127,7 +127,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           style={{ display: 'flex', justifyContent: 'center' }}
         >
           <img
-            src="/images/houndsmoking.gif"
+            src="/images/houndsmoking1.gif"
             width={450}
             height={450}
           />
