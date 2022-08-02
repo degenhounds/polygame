@@ -224,10 +224,10 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            ABOUT US (NFT PRESALE AUGUST 1)
+            ABOUT US (NFT PRESALE SEPTEMBER 20)
           </Heading>
           <Paragraph>
-              MINT AN NFT ON AUGUST 1 TO BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME.
+              MINT AN NFT ON SEPTEMBER 20 TO BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME.
             Degen Hounds is a {" "}
             <Link href="https://polygonscan.com/address/0xaBeB320fb3500ACF4E8c9406b93cdbfaa584988D" target="_blank">
               Smart Contract
