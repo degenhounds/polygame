@@ -131,7 +131,7 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                             flexGrow={1}
                             textAlign="center"
                         >
-                            <p>{200 * mintAmount} MATIC</p>
+                            <p>{80USD * mintAmount} MATIC</p>
                         </Box>
                     </Box>
 
