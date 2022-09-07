@@ -180,7 +180,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
             textAlign="center"
           >
             <Heading as="h2" variant="page-title">
-              RECENT PLAYS (2,000+ Games Played)
+              RECENT PLAYS (3,500+ Games Played)
             </Heading>
             {/* <hr style={{ marginTop: 10, marginBottom: 10, marginLeft: 60, marginRight: 60 }} /> */}
             <div
