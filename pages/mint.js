@@ -134,11 +134,7 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                             flexGrow={1}
                             textAlign="center"
                         >
-<<<<<<< Updated upstream
-                            <p>{80 * mintAmount} MATIC</p>
-=======
                             <p>{mintPrice * mintAmount} MATIC</p>
->>>>>>> Stashed changes
                         </Box>
                     </Box>
 
