@@ -36,6 +36,7 @@ const dh_contract = new web3.eth.Contract(dh_contract_abi, dhContractAddr);
 
 const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
     const [mintAmount, setMintAmount] = useState(1);
+    const [mintPrice, setMintPrice] = useState(0);
     const [totalMinted, setTotalMinted] = useState(0);
 
     const mycontext = useAppContext();
@@ -53,6 +54,8 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
             }
             let minted = await dh_contract.methods.tokensMinted().call();
             setTotalMinted(minted);
+            let price = await dh_contract.methods.MINT_PRICE().call();
+            setMintPrice(web3.utils.fromWei(price));
         }
 
         init();
@@ -65,7 +68,7 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
         await dh_contract.methods.mintNFT(mintAmount).send({
             from: wallet,
             to: dhContractAddr,
-            value: web3.utils.toWei((200*mintAmount).toString())
+            value: web3.utils.toWei((mintPrice*mintAmount).toString())
         });
         let minted = await dh_contract.methods.tokensMinted().call();
         setTotalMinted(minted);
@@ -131,7 +134,11 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                             flexGrow={1}
                             textAlign="center"
                         >
+<<<<<<< Updated upstream
                             <p>{80 * mintAmount} MATIC</p>
+=======
+                            <p>{mintPrice * mintAmount} MATIC</p>
+>>>>>>> Stashed changes
                         </Box>
                     </Box>
 
