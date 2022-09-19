@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
-    const [isSound, setIsSound] = useState(true);
+    const [isSound, setIsSound] = useState(false);
 
     return (
         <AppContext.Provider value={{ isSound, setIsSound }}>
