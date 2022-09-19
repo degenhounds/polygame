@@ -174,6 +174,13 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           Play a game - Open a ticket on our Discord - Show Proof - Win Instant WL - Limited time only!
           </Paragraph>
         </Box>
+        
+        <Box display={{ md: 'flex'}}>
+            <video autoPlay muted={mycontext.isSound} loop style={{ width: '500px', height: '250px' }}>
+              <source src="/teaser.mp4" />
+            </video>
+        </Box>
+
         <Box display={{ md: 'flex' }}>
           <Box
             flexGrow={1}
