@@ -171,7 +171,11 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
               )
           }
             <Paragraph>
-          Play a game - Open a ticket on our Discord - Show Proof - Win Instant WL - Limited time only!
+           Connect wallet to Mint! {" "}
+            <Link href="https://degenhounds.com/" target="_blank">
+              Click Here
+              </Link>
+            {" "} to mint in Ethereum (ETH)
           </Paragraph>
         </Box>
         
