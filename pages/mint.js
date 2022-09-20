@@ -155,6 +155,16 @@ const Mint = ({ wallet, balance, setBalance, clickSoundPlay }) => {
                     </Box>
 
                     <Section delay={0.1}>
+                         <div
+                        style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}
+                    >
+                        <img
+                            src="/images/Poster1.png"
+                            width={300}
+                            height={300}
+                        />
+                    </div>
+                        <Section delay={0.1}>
                         <Heading as="h3" variant="section-title">
                             Degen Hound NFT (Mint Available SEPTEMBER 20)
                         </Heading>
