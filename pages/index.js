@@ -141,7 +141,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
           css={{ backdropFilter: 'blur(10px)' }}
         >
-          Welcome to the Degen Hound Races! An Opensource 50/50 NFT Game
+          Welcome to the Degen Hound Races! Presale Live at 10:30am EST!
       </Box>
         <Box align="center" my={4}>
           {
