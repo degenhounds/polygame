@@ -141,7 +141,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
           css={{ backdropFilter: 'blur(10px)' }}
         >
-          Welcome to the Degen Hound Races! Presale Live at 10:30am EST!
+          Welcome to the Degen Hound Races! PRESALE LIVE NOW!
       </Box>
         <Box align="center" my={4}>
           {
@@ -235,7 +235,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            ABOUT US (NFT PRESALE SEPTEMBER 20)
+            ABOUT US (PRESALE LIVE NOW)
           </Heading>
           <Paragraph>
               MINT AN NFT ON SEPTEMBER 20 TO BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME.
