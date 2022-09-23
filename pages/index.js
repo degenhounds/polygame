@@ -166,7 +166,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
                     style={{ marginLeft: 8 }}
                   >
                     Mint Now
-                  </Button/*>
+                  </Button */>
                 </div>
               )
           }
