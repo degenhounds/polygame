@@ -179,11 +179,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           </Paragraph>
         </Box>
         
-        <Box display={{ md: 'flex'}}>
-            <video autoPlay muted={!mycontext.isSound} loop style={{ width: '500px', height: '250px' }}>
-              <source src="/teaser.mp4" />
-            </video>
-        </Box>
+
 
         <Box display={{ md: 'flex' }}>
           <Box
