@@ -159,14 +159,14 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
                     onClick={playClicked}
                   >
                     Play Now
-                  </Button>
+                  </*Button>
                   <Button
                     colorScheme="teal"
                     onClick={mintClicked}
                     style={{ marginLeft: 8 }}
                   >
                     Mint Now
-                  </Button>
+                  </Button/*>
                 </div>
               )
           }
