@@ -141,7 +141,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
           css={{ backdropFilter: 'blur(10px)' }}
         >
-          Welcome to the Degen Hound Races! PRESALE LIVE NOW!
+          Welcome to the Degen Hound Races!
       </Box>
         <Box align="center" my={4}>
           {
@@ -231,10 +231,10 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
 
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">
-            ABOUT US (PRESALE LIVE NOW)
+            ABOUT US (PRESALE OCT 1)
           </Heading>
           <Paragraph>
-              MINT AN NFT ON SEPTEMBER 20 TO BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME.
+              MINT AN NFT ON OCTOBER 1 TO BECOME THE GAMEMASTER & EARN PASSIVE INCOME FROM OUR GAME.
             Degen Hounds is a {" "}
             <Link href="https://polygonscan.com/address/0xaBeB320fb3500ACF4E8c9406b93cdbfaa584988D" target="_blank">
               Smart Contract
