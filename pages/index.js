@@ -172,7 +172,7 @@ const Home = ({ wallet, connectWallet, games, web3, setGames, contract, clickSou
           }
             <Paragraph>
            Connect wallet to Mint! {" "}
-            <Link href="https://degenhounds.com/" target="_blank">
+            <Link href="https://eth.degenhounds.com/" target="_blank">
               Click Here
               </Link>
             {" "} to mint in Ethereum (ETH)
